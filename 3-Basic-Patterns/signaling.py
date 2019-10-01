@@ -9,14 +9,14 @@ import threading
 
 # Basically, I want the a1 message to print before b1!
 
-a1done = threading.Semaphore(0)
+a1_done = threading.Semaphore(0)
 
 def function_a():
     print("My a1 message")
-    a1done.release()
+    a1_done.release()
 
 def function_b():
-    a1done.acquire()
+    a1_done.acquire()
     print("My b1 message")
 
 # Here I'm making sure I start t2 before t1 so normally function b would print first
